@@ -1,7 +1,7 @@
 module "cw_cpu" {
   # source = "../terraform-aws-excp-cloudwatch//ec2_cpu"
 
-  source = "git@github.com:exactsoftware/tfm-aws-mod-cloudwatch//ec2_cpu?ref=v0.0.2"
+  source = "github.com/rb-org/tfm-aws-mod-cloudwatch//ec2_cpu?ref=v0.0.2"
 
   instance_ids        = "${aws_instance.ec2.*.id}"
   instance_name       = "${aws_instance.ec2.*.tags.Name}"
@@ -13,7 +13,7 @@ module "cw_cpu" {
 module "cw_disks" {
   # source = "../terraform-aws-excp-cloudwatch//ec2_disk_space"
 
-  source = "git@github.com:exactsoftware/tfm-aws-mod-cloudwatch//ec2_disk_space?ref=v0.0.2"
+  source = "github.com/rb-org/tfm-aws-mod-cloudwatch//ec2_disk_space?ref=v0.0.2"
 
   instance_ids             = "${aws_instance.ec2.*.id}"
   instance_name            = "${aws_instance.ec2.*.tags.Name}"

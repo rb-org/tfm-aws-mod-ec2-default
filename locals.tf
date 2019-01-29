@@ -6,5 +6,4 @@ locals {
   enable_cw_alarm_disk_tux = "${var.enable_cw_alarm_disk_tux == "true" || var.enable_cw_alarm_disk_tux ? true : false }"
   root_volume_type         = "${var.root_volume_type != "" ? var.root_volume_type : data.aws_ami.info.root_device_type}"
   root_iops                = "${var.root_volume_type == "io1" ? var.root_iops : "0"}"
-  machine_name_prefix      = "${upper(terraform.workspace)}${upper(var.app_id)}${upper(var.countrycode)}"
 }
