@@ -13,13 +13,13 @@ module "cw_cpu" {
 module "cw_disks" {
   # source = "../terraform-aws-excp-cloudwatch//ec2_disk_space"
 
-  source = "github.com/rb-org/tfm-aws-mod-cloudwatch//ec2_disk_space?ref=v0.0.2"
+  source = "github.com/rb-org/tfm-aws-mod-cloudwatch//ec2_disk_space?ref=v0.0.3"
 
   instance_ids             = "${aws_instance.ec2.*.id}"
   instance_name            = "${aws_instance.ec2.*.tags.Name}"
   instance_type            = "${var.instance_type}"
   instance_count           = "${var.instance_count}"
-  ami_id                   = "${var.ami_id}"
+  ami_id                   = "${aws_instance.ec2.*.ami}"
   enable_cw_alarm_disk_win = "${var.enable_cw_alarm_disk_win}"
   enable_cw_alarm_disk_tux = "${var.enable_cw_alarm_disk_tux}"
   disk_namespace           = "${var.disk_namespace}"
